@@ -8,4 +8,4 @@ Install all skills in this repository globally with the Skills CLI:
 npx skills add matteodelseppia/skills -g -y
 ```
 
-This installs the repository's skills for Pi and other supported agents.
+The skills are supported for GitHub Copilot, Pi, Crush, and OpenCode.
