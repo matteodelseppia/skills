@@ -12,28 +12,52 @@ description:
 ## Overview
 
 Review a design document as a skeptical senior software architect and downstream
-implementation owner. Ground every finding in the document, repository, or cited
-source; distinguish a missing decision from a wrong decision and a material risk
-from a stylistic preference.
+implementation owner. Ground every finding in the supplied document and
+explicitly supplied external evidence; distinguish a missing decision from a
+wrong decision and a material risk from a stylistic preference.
+
+## Inputs
+
+The invoking prompt must provide these named inputs:
+
+- `document_path` (required): path to the primary design document. Treat this
+  file as the authoritative review target.
+- `external_paths` (optional): paths to additional files or directories that
+  provide context, such as diagrams, schemas, ADRs, APIs, configuration, tests,
+  or implementation files. Use an empty list when no external evidence is
+  supplied.
+- `review_mode` (optional): `document-only`, `repository-aware`, or `targeted`.
+  Default to `document-only`.
+- `focus` (optional): a specific concern to prioritize in a targeted review.
+
+Use this self-contained invocation shape:
+
+```text
+Document: path/to/design.md
+External evidence:
+- path/to/diagram.mmd
+- path/to/schema.sql
+Review mode: repository-aware
+Focus: data migration and rollback
+```
+
+Do not search the repository to discover the primary document or unsupplied
+external evidence. If `document_path` is missing, ask for it before reading
+further. If `external_paths` is empty, state the resulting evidence limitation.
 
 ## Review workflow
 
 ### 1. Establish scope and evidence
 
-1. Identify the target document from the user request or the repository. If the
-   skill is explicitly invoked with additional prompt text, treat that text as
-   part of the request. If there are multiple candidates, state which one you
-   selected and why.
-2. Read the complete document before judging individual sections. Inspect linked
-   diagrams, schemas, ADRs, API definitions, configuration, tests, and relevant
-   implementation files when available.
-3. Determine the review mode:
+1. Read the complete file at `document_path` before judging individual sections.
+2. Follow links from the primary document to related artifacts. Also inspect
+   every item in `external_paths`; do not infer additional files to inspect.
+3. Apply the supplied `review_mode`:
    - **Document-only:** assess the proposal and explicitly state that repository
      conformance was not checked.
-   - **Repository-aware:** compare the proposal with current code, dependencies,
-     deployment files, ADRs, and established patterns.
-   - **Targeted:** focus on the requested concern, but still flag blocking
-     cross-cutting risks.
+   - **Repository-aware:** compare the proposal with the supplied repository
+     files, dependencies, deployment files, and established patterns.
+   - **Targeted:** focus on `focus`, but still flag blocking cross-cutting risks.
 4. Extract the system context, actors, components, data flows, invariants,
    decision drivers, assumptions, and open questions before forming conclusions.
 
