@@ -12,8 +12,7 @@ you'll have [specific working result the reader can see/run/use].
 
 [One instruction. Be specific — exact commands, exact file names.]
 
-You should now see [exact expected output/state]. This confirms [what it
-means].
+You should now see [exact expected output/state]. This confirms [what it means].
 
 ## Step 2: [Action]
 

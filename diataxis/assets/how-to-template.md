@@ -18,8 +18,8 @@ competence/setup assumed — e.g., "already have X installed and configured"].
 
 ## Verify it worked
 
-[How the reader confirms the goal was actually achieved — a command to run,
-an output to check, a state to observe.]
+[How the reader confirms the goal was actually achieved — a command to run, an
+output to check, a state to observe.]
 
 ## Related
 

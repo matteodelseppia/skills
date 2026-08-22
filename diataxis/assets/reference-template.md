@@ -10,7 +10,7 @@
 
 **Example:**
 
-```
+```text
 [minimal illustrative usage — not a walkthrough]
 ```
 
@@ -21,8 +21,8 @@
 
 ## Errors
 
-| Code | Meaning |
-|---|---|
+| Code   | Meaning                                   |
+| ------ | ----------------------------------------- |
 | [code] | [neutral description of when this occurs] |
 
 ## See also

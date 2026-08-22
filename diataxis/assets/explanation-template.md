@@ -1,7 +1,7 @@
 # Understanding [bounded topic]
 
-[Open with the question this document answers — the "why" or "how" that
-prompted it, not a restatement of facts already in reference docs.]
+[Open with the question this document answers — the "why" or "how" that prompted
+it, not a restatement of facts already in reference docs.]
 
 ## Context
 
