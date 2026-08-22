@@ -43,12 +43,18 @@ establish enough context to know whether changing that line is actually correct.
 
 ## Workflow
 
-### 1. Understand the system context
+### 1. Read the context file, or create it if it doesn't exist
 
-Before investigating the defect, establish a concise mental model of the
-software.
+Before investigating the defect, check whether a context file for this
+investigation already exists, for example left behind by a previous session
+working on the same bug. If it exists, read it fully to recover prior
+findings, hypotheses, and decisions before doing anything else. If it does
+not exist, create one and use it to record the investigation as it
+progresses, so the work can be resumed even if the session is interrupted or
+compacted.
 
-Determine:
+Use the context file to establish, and keep updated, a concise mental model
+of the software. Determine:
 
 * what the software or affected subsystem does;
 * who or what consumes it;
@@ -576,7 +582,8 @@ A bug should normally be considered fixed only when:
 * the broadest practical system validation passes;
 * the original scenario was rechecked when practical;
 * compatibility and consumer impact were considered;
-* the root cause, fix, verification, and impact are documented.
+* the root cause, fix, verification, and impact are documented;
+* the context file is updated.
 
 The final report must distinguish between what was **verified** and what was
 merely **reasoned about**.
