@@ -474,8 +474,11 @@ Instead determine whether:
 * a compatibility case was missed;
 * a test failed to cover an important interaction.
 
-Use version-control history as evidence, not as a substitute for understanding the
-current code.
+Consult version-control history selectively rather than by default: pulling in
+large amounts of history adds token overhead, and history does not always
+contain useful or reliable context, so it can introduce noise or misleading
+information. When it is consulted, treat it as evidence, not as a substitute
+for understanding the current code.
 
 ---
 
